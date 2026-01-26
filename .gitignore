@@ -1,0 +1,9 @@
+# Ignore all executable files
+*.exe
+
+# Ignore debug symbols (if you ever use them)
+*.pdb
+*.out
+
+# Ignore VS Code local settings folder
+.vscode/
