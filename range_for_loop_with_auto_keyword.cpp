@@ -4,6 +4,7 @@
 int main() {
     std::vector<int> vec{4, 2, 3, 5, 1};
 
+    std::cout << "Elements of vector: ";
     for (auto x : vec) {
         std::cout << x << " ";
     }
@@ -13,6 +14,7 @@ int main() {
         x += 2;
     }
 
+    std::cout << "Elements of vector after adding 2 to each element: ";
     for (auto x : vec) {
         std::cout << x << " ";
     }
