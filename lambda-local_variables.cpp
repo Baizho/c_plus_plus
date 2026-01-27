@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 int main() {
     // Variables which are local only to it's lambda body
@@ -23,4 +24,16 @@ int main() {
     };
 
     std::cout << f1(b) << "\n";
+
+    std::cout << "\n";
+
+    std::vector<int> vec(5);
+
+    std::cout << "Size of vec: " << vec.size() << "\n";
+
+    auto f2 = [v = std::move(vec)] () {
+        return 1;
+    }();
+
+    std::cout << "Size of vec after move: " << vec.size() << "\n";
 }
