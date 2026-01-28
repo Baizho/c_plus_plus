@@ -4,12 +4,13 @@
 class Worker {
 public:
     void doWork(int id) {
-        std::cout << "Worker " << id
-                  << " running on thread "
-                  << std::this_thread::get_id()
-                  << "\n";
+        std::cout << "Worker " << id << " running on thread " << std::this_thread::get_id() << "\n";
     }
 };
+
+void work(int& x) {
+    x += 10;
+}
 
 int main() {
     Worker w;
@@ -34,4 +35,12 @@ int main() {
 
     t3.join();
 
+
+    // even if passed variable is reference, you always have to use the function
+    
+    int value = 10;
+    int& ref = value;
+
+    std::thread t4(work, std::ref(ref));  
+    t4.join();
 }
