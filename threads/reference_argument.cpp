@@ -8,6 +8,10 @@ void addTen(int& x) {
     }
 }
 
+void printSize(const std::vector<int>& v) {
+    std::cout << "Size: " << v.size() << "\n";
+}
+
 int main() {
     int number = 0;
 
@@ -15,4 +19,9 @@ int main() {
     t.join();
 
     std::cout << "number = " << number << "\n";  // 10
+
+    std::vector<int> data(1'000'000, 1);
+
+    std::thread t2(printSize, std::cref(data));  // no copy of 1M ints
+    t2.join();
 }
