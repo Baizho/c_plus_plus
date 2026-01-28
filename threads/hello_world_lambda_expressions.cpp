@@ -3,7 +3,7 @@
 
 int main() {
     std::thread thr([]() {
-        std::cout << "Hello Thread!";
+        std::cout << "Hello, World!";
     });
 
     thr.join();
