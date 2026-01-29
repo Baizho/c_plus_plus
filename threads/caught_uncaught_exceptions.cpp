@@ -24,6 +24,10 @@ void bye() {
     std::cout << "Goodbye Thread!\n";
 }
 
+void welcome() {
+    std::cout << "Welcome Thread!\n";
+}
+
 int main() {
 
     // you can handles exceptions in its thread only
@@ -43,6 +47,36 @@ int main() {
     }
     catch (std::exception& e) {
         std::cout << "Exception caught: " << e.what() << "\n";
+    }
+
+    // another unsafe exception
+
+    std::cout << "Starting thread again...\n";
+    try {
+        std::thread thread(welcome);
+
+        throw std::exception();
+
+        thread.join();
+    }
+    catch (std::exception& e) {
+        std::cout << "Exception caught: " << e.what() << "\n";
+    }
+
+    // safe exception to manage threads
+
+    std::cout << "Starting thread again...\n";
+
+    std::thread safethread(welcome);
+    try {
+        throw std::exception();
+
+        safethread.join();
+    }
+    catch (std::exception& e) {
+        std::cout << "Exception caught: " << e.what() << "\n";
+
+        safethread.join();
     }
 
 }
