@@ -36,32 +36,30 @@ int main() {
 
     thread.join();
 
-    std::cout << "it works";
-
     // unlike the below which wont catch it, uncaught exception, terminates everything
-    std::cout << "Starting thread again...\n";
-    try {
-        std::thread thread(bye);
+    // std::cout << "Starting thread again...\n";
+    // try {
+    //     std::thread thread(bye);
 
-        thread.join();
-    }
-    catch (std::exception& e) {
-        std::cout << "Exception caught: " << e.what() << "\n";
-    }
+    //     thread.join();
+    // }
+    // catch (std::exception& e) {
+    //     std::cout << "Exception caught: " << e.what() << "\n";
+    // }
 
     // another unsafe exception
 
-    std::cout << "Starting thread again...\n";
-    try {
-        std::thread thread(welcome);
+    // std::cout << "Starting thread again...\n";
+    // try {
+    //     std::thread thread(welcome);
 
-        throw std::exception();
+    //     throw std::exception();
 
-        thread.join();
-    }
-    catch (std::exception& e) {
-        std::cout << "Exception caught: " << e.what() << "\n";
-    }
+    //     thread.join();
+    // }
+    // catch (std::exception& e) {
+    //     std::cout << "Exception caught: " << e.what() << "\n";
+    // }
 
     // safe exception to manage threads
 
