@@ -17,14 +17,25 @@ void print(std::string str) {
             // if we don't unlock, we will try to lock again and that will throw an error
             std::unique_lock<std::mutex> uniq_lck(print_mutex); 
 
-            // also std::try_to_lock
-            // std::defer_lock
+            // also std::try_to_lock std::unique_lock<std::mutex> lock(print_mutex, std::try_to_lock); Tries to lock without blocking
+            // if (lock.owns_lock()) {
+            //     std::cout << "Got the lock\n";
+            // } else {
+            //     std::cout << "Could not get lock\n";
+            // }
+            // std::unique_lock<std::mutex> lock(print_mutex, std::defer_lock), Does NOT lock the mutex yet, must manually lock, .lock()
             // std::adopt_lock
+            //             print_mutex.lock();  // manually lock first
 
+            // std::unique_lock<std::mutex> lock(print_mutex, std::adopt_lock);
+            // Now unique_lock takes ownership and will unlock automatically later.
+
+            // If you use adopt_lock without locking first → 💥 undefined behavior.
+            
             std::cout << str[0] << str[1] << str[2] << "\n";
 
             // critical section throws exception
-            throw std::exception();
+            // throw std::exception();
             // critical section ends
 
             uniq_lck.unlock(); // we can unlock here so we don't block other threads
