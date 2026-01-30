@@ -17,6 +17,10 @@ void print(std::string str) {
             // if we don't unlock, we will try to lock again and that will throw an error
             std::unique_lock<std::mutex> uniq_lck(print_mutex); 
 
+            // also std::try_to_lock
+            // std::defer_lock
+            // std::adopt_lock
+
             std::cout << str[0] << str[1] << str[2] << "\n";
 
             // critical section throws exception
@@ -70,8 +74,7 @@ int main() {
     t5.join();
     t6.join();
     
-    // here, we also don't get 300000 because of data race
-    // some threads when resuming execution might not get latest information about counter
+    // everything should be fine
     std::cout << counter << "\n";
 
 }

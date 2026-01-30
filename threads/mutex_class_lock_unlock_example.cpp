@@ -51,9 +51,8 @@ int main() {
     t4.join();
     t5.join();
     t6.join();
-    
-    // here, we also don't get 300000 because of data race
-    // some threads when resuming execution might not get latest information about counter
+
+    // everything should be fine
     std::cout << counter << "\n";
 
 }
