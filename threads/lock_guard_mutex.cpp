@@ -24,7 +24,7 @@ void print(std::string str) {
             // critical section ends
 
             std::this_thread::sleep_for(50ms);
-        }
+        } // calls ~std::lock_guard
         catch (std::exception& e) {
             std::cout << "Exception caught: " << e.what() << "\n";
         }
