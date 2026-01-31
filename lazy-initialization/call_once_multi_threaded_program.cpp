@@ -1,5 +1,5 @@
 // Lazy initialization (multi-threaded)
-// Uses the Double-checked Locking algorithm
+// Uses std::call_once()
 #include <iostream>
 #include <thread>
 #include <mutex>
