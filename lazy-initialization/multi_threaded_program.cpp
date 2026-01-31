@@ -22,6 +22,11 @@ void process() {
     uniq_lck.unlock();
     ptest->func();
     std::cout << ptest << "\n";
+
+    // recommendation:
+    // if ptest isn't required out of function, use meyers
+    // otherwise use call_once
+    // or you can use double-checked locking with c++17 compiler or later
 }
 
 int main() {
