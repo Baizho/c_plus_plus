@@ -20,6 +20,11 @@ void process() {
         
         if (!ptest)                  // Second check of ptest
             ptest = new Test;   // Initialize ptest
+            // this can still be dangerous because when initializing ptest, it has multiple operations:
+            // 1. Allocate memory to store Test object
+            // 2. store the address in ptest
+            // 3. construct Test object in memory
+            // there can be undefined behavior, thread B can use the somewhat uninitialized object and undefined behaviour comes
     }
     ptest->func();
     std::cout << ptest << "\n";
