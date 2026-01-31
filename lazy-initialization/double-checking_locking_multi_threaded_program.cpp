@@ -8,6 +8,10 @@
 class Test {
 	// ...
 public:
+    Test()
+	{
+		std::cout << "Test constructor called\n";
+	}
 	void func() { std::cout << "Function used\n";}
 };
 
@@ -20,11 +24,13 @@ void process() {
         
         if (!ptest)                  // Second check of ptest
             ptest = new Test;   // Initialize ptest
-            // this can still be dangerous because when initializing ptest, it has multiple operations:
+            // In C++14 or lower, this can still be dangerous because when initializing ptest, it has multiple operations:
             // 1. Allocate memory to store Test object
             // 2. store the address in ptest
             // 3. construct Test object in memory
-            // there can be undefined behavior, thread B can use the somewhat uninitialized object and undefined behaviour comes
+            // there can be undefined behavior, thread B can use the not fully initialized object and undefined behaviour comes
+
+            // In C++17, it is no longer dangerous or a data race
     }
     ptest->func();
     std::cout << ptest << "\n";
