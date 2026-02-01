@@ -1,5 +1,6 @@
 // Avoid deadlock by writing the threads
 // so that they lock the mutexes in the same order
+// not really realiable and relies on the programmer, there are better approaches
 #include <thread>
 #include <mutex>
 #include <iostream>
