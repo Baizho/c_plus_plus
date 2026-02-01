@@ -5,6 +5,8 @@
 // A third thread processes the data when the download is complete
 //
 // Implemented using bools to communicate between the threads
+//
+// Not ideal, too many loops, too many explicit locks and unlock, how to choose sleep duration?
 #include <iostream>
 #include <mutex>
 #include <thread>
