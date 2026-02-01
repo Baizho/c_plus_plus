@@ -132,4 +132,7 @@ int main()
 		std::cout << "Philosopher " << names[i];
 		std::cout << " had " << mouthfuls[i] << " mouthfuls\n";
 	}
+
+    // none of them the philosophers can pick up their right fork because other ppl took them as their left fork
+	// they are all deadlocked, and this is a classic problem
 }
