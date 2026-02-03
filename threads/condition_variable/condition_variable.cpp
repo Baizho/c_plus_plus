@@ -8,6 +8,7 @@
 #include <iostream>
 #include <thread>
 #include <condition_variable>
+// there is also condition_variable_any to support other mutexes, e.g std::timed_mutex (but more overhead)
 #include <string>
 #include <chrono>
 
