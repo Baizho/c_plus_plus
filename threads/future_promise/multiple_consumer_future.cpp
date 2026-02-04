@@ -1,6 +1,8 @@
 // Example using std::promise and std::future
 // to send a result from a producer thread
 // to a consumer thread
+
+// this would cause an error, std::future ain't build for multiple, also it is move-only class so it cant be used more than twice anyways
 #include <future>
 #include <iostream>
 #include <thread>
