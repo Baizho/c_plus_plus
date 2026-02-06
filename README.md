@@ -1,6 +1,6 @@
 # Modern C++ features, Multithreading, Concurrency & Parallelism
 
-This repository is a structured collection of **C++ multithreading, concurrency, parallelism, and modern c++ feature examples**.  
+This repository is a structured collection of **C++ multithreading, concurrency, parallelism, and modern c++ features**.  
 It focuses on *correctness*, *synchronization*, and *design tradeoffs* when writing multi-threaded C++ code.
 
 The code is intentionally organized by **concept**, not by application — each file explores a specific concurrency primitive, pattern, or pitfall.
